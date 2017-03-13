@@ -4,11 +4,17 @@
  \section intro_sec Introduction
  This library provides interface implementaiton to use EVShield UIModule<br>
  For more information about the UIModule, please visit:<br>
- http://www.openelectrons.com/index.php?module=pagemaster&PAGE_user_op=view_page&PAGE_id=99
+ http://www.mindsensors.com/arduino/8-ui-module-for-evshield-or-arduino
 */
 
 /*
- * Copyright (C) 2015 OpenElectrons.com
+ * History:
+ * Date      Author          Comments
+ * Feb 2017  Seth Tenembaum  updated pin definitions for PiStorms
+*/
+
+/*
+ * Copyright (C) 2017 OpenElectrons.com
  *
  * This file is part of EVShield interface library.
  * This library is free software; you can redistribute it and/or
@@ -42,12 +48,29 @@
 #define EVs_UIM_YELLOW  0xFFE0  
 #define EVs_UIM_WHITE   0xFFFF
 
+#if defined(ESP8266) || defined(AVR_NANO)
+#define EVs_BTN_LEFT -1
+#define EVs_BTN_RIGHT -1
+#define EVs_BTN_UP -1
+#define EVs_BTN_DOWN -1
+#define EVs_BTN_CLICK  -1
+#else
 #define EVs_BTN_LEFT A3
 #define EVs_BTN_RIGHT A0
 #define EVs_BTN_UP A1
 #define EVs_BTN_DOWN A2
 #define EVs_BTN_CLICK  2
+#endif
 
+#if defined(ESP8266) || defined(AVR_NANO)
+#define _cs D1
+#define _dc D4
+#define _rst -1
+#else
+#define _cs 7
+#define _dc 8
+#define _rst 9
+#endif
 
 /**
   @brief This class defines methods for the UIModule for EVShield
@@ -58,7 +81,7 @@ class EVs_UIModule : public Adafruit_ILI9340
     /**  Constructor for UI Module, 
     this constructor takes input as three SPI pin assignments.
     */
-    EVs_UIModule(uint8_t a, uint8_t b, uint8_t c);
+    EVs_UIModule(uint8_t CS = _cs, uint8_t RS = _dc, uint8_t RST = _rst);
 
   /** initialize the library interface, its default values and performs hardware setup required for operation.
   */
@@ -76,7 +99,8 @@ class EVs_UIModule : public Adafruit_ILI9340
   void clearScreen();
 
   /**
-  Get the button state of the specific button on UI Module
+  Get the button state of the specific button on UI Module<br>
+  Not avaliable on the Wi-Fi Arduino Interface for PiStorms.
   @param btn      Button to get state for following: <br>
             EVs_BTN_LEFT <br>
             EVs_BTN_RIGHT <br>
@@ -88,7 +112,8 @@ class EVs_UIModule : public Adafruit_ILI9340
   bool getButtonState(uint8_t btn);
 
   /** 
-  Wait inside function until specified button is pressed on UIModule
+  Wait inside function until specified button is pressed on UIModule<br>
+  Not avaliable on the Wi-Fi Arduino Interface for PiStorms.
   @param btn      Button to get state for: <br>
             EVs_BTN_LEFT <br>
             EVs_BTN_RIGHT <br>
@@ -120,7 +145,7 @@ class EVs_UIModule : public Adafruit_ILI9340
             EVs_UIM_YELLOW <br>
             EVs_UIM_WHITE
   */
-  void writeLine(uint16_t x, uint8_t lineNo, char *outText, bool clearLine, uint16_t color);
+  void writeLine(uint16_t x, uint8_t lineNo, const char *outText, bool clearLine, uint16_t color);
 
 };
 
