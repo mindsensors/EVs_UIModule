@@ -1,6 +1,9 @@
 var _e_vs___u_i_module_8h =
 [
     [ "EVs_UIModule", "class_e_vs___u_i_module.html", "class_e_vs___u_i_module" ],
+    [ "_cs", "_e_vs___u_i_module_8h.html#abb88d1028d4ba283c740eb38bfa1042f", null ],
+    [ "_dc", "_e_vs___u_i_module_8h.html#a420f506f991452ba06b77131db344fcf", null ],
+    [ "_rst", "_e_vs___u_i_module_8h.html#abbb7e6f2900256e7994d1db0bdc3419f", null ],
     [ "EVs_BTN_CLICK", "_e_vs___u_i_module_8h.html#a68a8d1d15634ab99d3755e5b5a031c9f", null ],
     [ "EVs_BTN_DOWN", "_e_vs___u_i_module_8h.html#a30e10db4b84db5f4f898592d9cead5c3", null ],
     [ "EVs_BTN_LEFT", "_e_vs___u_i_module_8h.html#a423b5ea6579ae9673b8e8fc406e1bd2d", null ],
