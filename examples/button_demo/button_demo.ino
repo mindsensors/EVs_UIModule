@@ -13,7 +13,7 @@
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  This program is written by OpenElectrons.com.
+  This program is written by mindsensors.com.
 */
 
 #define DEBUG    1
@@ -104,4 +104,3 @@ void loop()
     last_colorPos = colorPos;
 
 }
-

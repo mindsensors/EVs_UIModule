@@ -8,7 +8,7 @@
 */
 
 /*
-  Copyright (C) 2017 OpenElectrons.com
+  Copyright (C) 2017 mindsensors.com
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -46,7 +46,7 @@ void EVs_UIModule::clearScreen()
 void EVs_UIModule::begin()
 {
     Adafruit_ILI9340::begin();
-    #if defined(ESP8266) || defined(AVR_NANO)
+    #if defined(ESP8266) || defined(ARDUINO_AVR_NANO)
     setRotation(3);
     #else
     setRotation(1);
@@ -54,7 +54,7 @@ void EVs_UIModule::begin()
     setTextSize(2);
     setTextColor(EVs_UIM_WHITE);
     setCursor(0, 0);
-    #if !(defined(ESP8266) || defined(AVR_NANO))
+    #if !(defined(ESP8266) || defined(ARDUINO_AVR_NANO))
     pinMode(EVs_BTN_LEFT, INPUT);
     pinMode(EVs_BTN_RIGHT, INPUT);
     pinMode(EVs_BTN_UP, INPUT);
@@ -63,13 +63,13 @@ void EVs_UIModule::begin()
     #endif
 }
 
-#if defined(ESP8266) || defined(AVR_NANO)
+#if defined(ESP8266) || defined(ARDUINO_AVR_NANO)
   #warning from EVs_UIModule: `bool getButtonState(uint8_t btn)` and `void waitForButtonPress(uint8_t btn)` are not supported on PiStorms, please use .getButtonState(BTN_GO) from the EVShield library.
 #endif
 
 bool EVs_UIModule::getButtonState(uint8_t btn)
 {
-    #if defined(ESP8266) || defined(AVR_NANO)
+    #if defined(ESP8266) || defined(ARDUINO_AVR_NANO)
     return false;
     #else
     return (!digitalRead(btn));
@@ -78,7 +78,7 @@ bool EVs_UIModule::getButtonState(uint8_t btn)
 
 void EVs_UIModule::waitForButtonPress(uint8_t btn)
 {
-    #if defined(ESP8266) || defined(AVR_NANO)
+    #if defined(ESP8266) || defined(ARDUINO_AVR_NANO)
     return;
     #else
     while (digitalRead(btn))

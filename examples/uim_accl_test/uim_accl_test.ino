@@ -94,7 +94,7 @@ unsigned long testText() {
     uim.setTextColor(EVs_UIM_WHITE);  uim.setTextSize(4);
     uim.println("EVShield");
     uim.setTextColor(EVs_UIM_YELLOW); uim.setTextSize(2);
-    uim.println("OpenElectrons.com");
+    uim.println("mindsensors.com");
     uim.setTextColor(EVs_UIM_GREEN);    uim.setTextSize(2);
     uim.println("Arduino Shield for");
     uim.setTextColor(EVs_UIM_RED);    uim.setTextSize(2);

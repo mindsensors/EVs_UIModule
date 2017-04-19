@@ -1,5 +1,5 @@
 /*
-  (c) OpenElectrons.com
+  (c) mindsensors.com
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -15,7 +15,7 @@
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-  This program is written by OpenElectrons.com.
+  This program is written by mindsensors.com.
 */
 
 #define DEBUG    1
@@ -81,7 +81,7 @@ void showLogo() {
     uim.setTextColor(EVs_UIM_WHITE);  uim.setTextSize(4);
     uim.println("EVShield");
     uim.setTextColor(EVs_UIM_YELLOW); uim.setTextSize(2);
-    uim.println("OpenElectrons.com");
+    uim.println("mindsensors.com");
     uim.println();
     uim.setTextColor(EVs_UIM_RED); uim.setTextSize(2);
     uim.println("To begin, Press key:");
@@ -198,4 +198,3 @@ void loop()
     uim.writeLine(12,15, scoreStr, false, EVs_UIM_BLUE);
 
 }
-
